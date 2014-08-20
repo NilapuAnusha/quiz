@@ -1,4 +1,3 @@
-quiz
-====
+# quiz-app
 
-Quiz application
+A simple angular.js quiz application.

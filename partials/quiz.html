@@ -1,0 +1,37 @@
+<div data-ng-controller="quizCtrl">
+	<div ng-show="level_count <= 3">
+		<h1>{{level._title}}</h1>
+		<div class="hero-unit">
+			<form data-ng-submit="submit()">
+				<div ng-hide="counter >= 6" ng-repeat="question in questions">
+					<div class="pull-right">
+						<div>{{timer}} seconds.</div>
+					</div>
+					<div><strong>{{counter}}. {{question.title}}</strong></div>
+					<p ng-repeat="opt in question.answer">		
+						<label ng-show="opt._correct" for="">
+						<input type="radio" name="questionAnswer" id="opt.id" value="" ng-click="checkAnswer(1)" />
+						{{opt.__text}}
+						</label>
+						<label ng-hide="opt._correct" for="">
+						<input type="radio" name="questionAnswer" id="opt.id" value="" ng-click="checkAnswer(0)" />
+						{{opt}}
+						</label>
+					</p>
+				</div>
+				<div  ng-show="counter == 6">
+					<p>Your score in {{level._title}}: {{score}}</p>
+					<button class="btn btn-primary" ng-click="nextLevel()">Next Level</button>
+				</div>
+			</form>
+		</div>
+	</div>	
+	<div ng-show="level_count == 4">
+		<div class="hero-unit">
+			<p>Your total score is: {{result}} %</p>
+			<div >
+				{{score_status}}
+			</div>
+		</div>
+	</div>
+</div>
