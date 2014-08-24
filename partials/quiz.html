@@ -21,7 +21,8 @@
 				</div>
 				<div  ng-show="counter == 6">
 					<p>Your score in {{level._title}}: {{score}}</p>
-					<button class="btn btn-primary" ng-click="nextLevel()">Next Level</button>
+					<button ng-show="level_count < 3" class="btn btn-primary" ng-click="nextLevel()">Next Level</button>
+					<button ng-show="level_count == 3" class="btn btn-primary" ng-click="nextLevel()">Check score</button>
 				</div>
 			</form>
 		</div>
